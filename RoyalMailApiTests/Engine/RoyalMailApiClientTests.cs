@@ -79,7 +79,7 @@ namespace RoyalMailApi.Engine.Tests
                 throw;
             }
         }
-        // Ina Pfeifer		NULL	NULL	NULL	NULL	NULL	SAARBRUECKEN	NULL	66111	Germany
+
         [TestMethod()]
         public void SendCreateShipmentTest_GermanyAddress()
         {
@@ -101,7 +101,7 @@ namespace RoyalMailApi.Engine.Tests
                     Address = new PPLabelAddress
                     {
                         ContactName = "Name Surname", // <!-- RoyalMail Api complementaryName -->
-                        AddLine1 = "Nauwieserstrasse 17",
+                        AddLine1 = "Nauwieserstrasse 22",
                         Town = "SAARBRUECKEN",
                         County = "",
                         Postcode = "66111",
