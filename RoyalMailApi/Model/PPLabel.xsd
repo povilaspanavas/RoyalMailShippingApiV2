@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="PPLabel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OrderId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="Printer" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="IntegrationCode1" type="xs:string" minOccurs="0"/>
+        <xs:element name="IntegrationCode2" type="xs:string" minOccurs="0"/>
+        <xs:element name="IntegrationCode3" type="xs:string" minOccurs="0"/>
+		<xs:element name="IntegrationCode4" type="xs:boolean" minOccurs="1" />
+        <xs:element name="ShippingDate" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="OrderReference" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="Address" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompanyName" type="xs:string" minOccurs="0" />
+			  <xs:element name="ContactName" type="xs:string" minOccurs="0" />
+              <xs:element name="AddLine1" type="xs:string" minOccurs="1" maxOccurs="1"/>
+              <xs:element name="AddLine2" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="AddLine3" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Town" type="xs:string" minOccurs="0" />
+              <xs:element name="County" type="xs:string" minOccurs="0" />
+              <xs:element name="Postcode" type="xs:string" minOccurs="0" />
+              <xs:element name="CountryCodeIso2" type="xs:string" minOccurs="0" />
+              <xs:element name="Email" type="xs:string" minOccurs="0" />
+              <xs:element name="Phone" type="xs:string" minOccurs="0" />
+			  <xs:element name="SafePlace" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Items" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Weight" type="xs:int" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Price" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="PPLabel" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

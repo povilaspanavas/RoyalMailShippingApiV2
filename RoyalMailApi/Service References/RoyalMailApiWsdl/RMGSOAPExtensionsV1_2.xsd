@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:soapext="http://www.royalmailgroup.com/soap/extensions/V1" xmlns:int="http://www.royalmailgroup.com/integration/core/V1" xmlns:dt="http://www.royalmailgroup.com/cm/rmDatatypes/V1" targetNamespace="http://www.royalmailgroup.com/soap/extensions/V1" version="1.2.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="DatatypesV2_3.xsd" namespace="http://www.royalmailgroup.com/cm/rmDatatypes/V1" />
+  <xs:import schemaLocation="CommonIntegrationSchemaV1_11_1.xsd" namespace="http://www.royalmailgroup.com/integration/core/V1" />
+  <xs:complexType name="detail">
+    <xs:annotation>
+      <xs:documentation>Element used to hold SOAP fault details</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exceptionDetails" type="soapext:exceptionDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="exceptionDetails">
+    <xs:annotation>
+      <xs:documentation>Used to hold the RMG defined data elements associated with the SOAP fault</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exceptionTransactionId" type="int:transactionId" />
+      <xs:element name="exceptionCode" type="int:errorCode" />
+      <xs:element name="exceptionText" type="dt:description" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

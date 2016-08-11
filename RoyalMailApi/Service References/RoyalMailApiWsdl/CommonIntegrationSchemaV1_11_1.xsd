@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:dt="http://www.royalmailgroup.com/cm/rmDatatypes/V1" xmlns:int="http://www.royalmailgroup.com/integration/core/V1" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.royalmailgroup.com/integration/core/V1" version="1.11.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="DatatypesV2_3.xsd" namespace="http://www.royalmailgroup.com/cm/rmDatatypes/V1" />
+  <xs:simpleType name="applicationId">
+    <xs:annotation>
+      <xs:documentation>For a request, this is the ID of the Service Requester calling the service, unique when combined with the TransactionId. For the response, this is the ID of the Service Provider, unique when combined with the TransactionId.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="dt:identifier">
+      <xs:maxLength value="50" />
+      <xs:whiteSpace value="preserve" />
+      <xs:minLength value="1" />
+      <xs:pattern value="[a-zA-Z0-9/\-]*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="transactionId">
+    <xs:annotation>
+      <xs:documentation>Id preserved throughout the lifespan of the transaction, unique when combined with the applicationId and intermediaryId (if applicable).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="dt:identifier">
+      <xs:maxLength value="50" />
+      <xs:whiteSpace value="preserve" />
+      <xs:minLength value="1" />
+      <xs:pattern value="[a-zA-Z0-9/\-]*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="identificationStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="endUserId" type="dt:identifier">
+        <xs:annotation>
+          <xs:documentation>User ID associated with the end user of the internal or external organisation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="applicationId" type="int:applicationId">
+        <xs:annotation>
+          <xs:documentation>The ID of the Service Requester system calling the service, unique when combined with the transactionId.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="intermediaryId" type="int:applicationId">
+        <xs:annotation>
+          <xs:documentation>Id associated with the Intermediary application (if applicable).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="transactionId" type="int:transactionId">
+        <xs:annotation>
+          <xs:documentation>Unique session id sent by the Service Requestor (for the request) or returned by the Service Provider (for the response)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integrationHeader">
+    <xs:annotation>
+      <xs:documentation>Common integration header definition</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateTime" type="dt:dateTime">
+        <xs:annotation>
+          <xs:documentation>Date timestamp associated with when the data was generated, sent or received</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="version" type="dt:decimal">
+        <xs:annotation>
+          <xs:documentation>Version of the service</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="identification" type="int:identificationStructure">
+        <xs:annotation>
+          <xs:documentation>Identification details associated with the Service Requestor or Service Provider</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="testFlag" type="dt:boolean">
+        <xs:annotation>
+          <xs:documentation>Flag which can be used to test that the exposed service is available. It is not expected that this flag will be used under normal BAU service operation.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="debugFlag" type="dt:boolean">
+        <xs:annotation>
+          <xs:documentation>Flag which can be used to allow any messages to be dynamically debugged. It is not expected that this flag will be used under normal BAU service operation.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="performanceFlag" type="dt:boolean">
+        <xs:annotation>
+          <xs:documentation>Flag which can be used to track the performance of the service across RMG systems (entry time, exit time, latency etc).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="errorCode">
+    <xs:annotation>
+      <xs:documentation>Code associated with the error condition in the form ENNNN</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="dt:identifier">
+      <xs:pattern value="[E]{1}[0-9]{4}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="warningCode">
+    <xs:annotation>
+      <xs:documentation>Code associated with the warning condition in the form WNNNN</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="dt:identifier">
+      <xs:pattern value="[W]{1}[0-9]{4}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="errorDetail">
+    <xs:sequence>
+      <xs:element name="errorCode" type="int:errorCode">
+        <xs:annotation>
+          <xs:documentation>Code associated with the error condition</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="errorDescription" type="dt:description">
+        <xs:annotation>
+          <xs:documentation>Description of the error condition</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="errorCause" type="dt:description">
+        <xs:annotation>
+          <xs:documentation>Cause of the business error (if known)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="errorResolution" type="dt:description">
+        <xs:annotation>
+          <xs:documentation>Description of the resolution and action required to correct the error</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="errorContext" nillable="true" type="dt:description">
+        <xs:annotation>
+          <xs:documentation>Context of the business error, e.g. client or server</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errorStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="error" type="int:errorDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="warningDetail">
+    <xs:sequence>
+      <xs:element name="warningCode" type="int:warningCode">
+        <xs:annotation>
+          <xs:documentation>Code associated with the warning</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="warningDescription" type="dt:description">
+        <xs:annotation>
+          <xs:documentation>Description of the warning</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="warningCause" type="dt:description">
+        <xs:annotation>
+          <xs:documentation>Cause of the warning (if known)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="warningResolution" type="dt:description">
+        <xs:annotation>
+          <xs:documentation>Description of the resolution and action required to correct the warning</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="warningContext" nillable="true" type="dt:description">
+        <xs:annotation>
+          <xs:documentation>Context of the warning, e.g. client or server</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="warningStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="warning" type="int:warningDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integrationFooter">
+    <xs:annotation>
+      <xs:documentation>Common integration footer definition</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="errors" type="int:errorStructure" />
+      <xs:element minOccurs="0" name="warnings" type="int:warningStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="integrationHeader" type="int:integrationHeader" />
+  <xs:element name="integrationFooter" type="int:integrationFooter" />
+</xs:schema>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fce48632-82cf-4135-bf7d-110ba1b889ca" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="C:\Users\Povilas.Panavas\Downloads\RoyalMailShippingAPIDocs\Shipping API V2 (SOAP)\ShippingAPI_V2_0_9.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="xml.xsd" MetadataType="Schema" ID="ffaaf101-b496-4019-926c-c1608b5f6373" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/xml.xsd" />
+    <MetadataFile FileName="xmldsig-core-schema.xsd" MetadataType="Schema" ID="5e6536d2-da26-4649-9ad8-96c56cda899d" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/xmldsig-core-schema.xsd" />
+    <MetadataFile FileName="RMGSOAPExtensionsV1_2.xsd" MetadataType="Schema" ID="36eb0295-bb54-4f42-b94c-4d91f8f6a1e4" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/CDM/RMGSOAPExtensionsV1_2.xsd" />
+    <MetadataFile FileName="shippingAPI.wsdl" MetadataType="Wsdl" ID="865f922a-430e-46d1-9e93-a236946816a9" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/ShippingAPI_V2_0_9.wsdl" />
+    <MetadataFile FileName="CommonClassesV2_3.xsd" MetadataType="Schema" ID="c017579e-d5be-4a93-863c-c21be681f0b5" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/CDM/CommonClassesV2_3.xsd" />
+    <MetadataFile FileName="ReferenceDataV2_3.xsd" MetadataType="Schema" ID="171cd2a9-1ee0-46b0-b29a-9f44fa1e9626" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/CDM/ReferenceDataV2_3.xsd" />
+    <MetadataFile FileName="ShippingAPI_V2_0_9.xsd" MetadataType="Schema" ID="7de02dc1-5c20-49d7-95c8-0c5978231b98" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/ShippingAPI_V2_0_9.xsd" />
+    <MetadataFile FileName="oasis-200401-wss-wssecurity-utility-1.xsd" MetadataType="Schema" ID="aa81f94a-b2b3-411a-895f-7acbc5b20a98" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/oasis-200401-wss-wssecurity-utility-1.0.xsd" />
+    <MetadataFile FileName="oasis-200401-wss-wssecurity-secext-1.xsd" MetadataType="Schema" ID="91737159-bf12-42a2-9e3d-088e4c4ed077" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/oasis-200401-wss-wssecurity-secext-1.0.xsd" />
+    <MetadataFile FileName="CommonIntegrationSchemaV1_11_1.xsd" MetadataType="Schema" ID="7c6716c0-8a5f-4632-8b96-759e98290775" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/CDM/CommonIntegrationSchemaV1_11_1.xsd" />
+    <MetadataFile FileName="DatatypesV2_3.xsd" MetadataType="Schema" ID="960955a5-90bc-4f5b-a2fd-a311f1624881" SourceId="1" SourceUrl="file:///C:/Users/Povilas.Panavas/Downloads/RoyalMailShippingAPIDocs/Shipping API V2 (SOAP)/CDM/DatatypesV2_3.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

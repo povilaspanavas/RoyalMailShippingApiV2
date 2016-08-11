@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PPLabel>
+	<OrderId>408938f2-7532-44ad-a5d8-c5bb26516dbd</OrderId> <!-- internal order id -->
+	<Printer>\\10.24.1.73\PrinterName</Printer> <!-- where to print the label -->
+	
+	<IntegrationCode1>D</IntegrationCode1> <!-- RoyalMail Api serviceType -->
+	<IntegrationCode2>SD1</IntegrationCode2> <!-- RoyalMail Api serviceOffering -->
+	<IntegrationCode3>P</IntegrationCode3> <!-- RoyalMail Api serviceFormat -->
+	<IntegrationCode4>false</IntegrationCode4> <!-- RoyalMail Api signature -->
+	<ShippingDate>2016-08-09</ShippingDate>               
+	<OrderReference>1028176226</OrderReference> <!-- RoyalMail Api senderReference -->
+	
+	<Address>
+		<ContactName>Name Surname</ContactName> <!-- RoyalMail Api complementaryName -->
+		<AddLine1>10 Cherry Tree Grove</AddLine1>
+		<AddLine2>Derbyshire</AddLine2>
+		<AddLine3></AddLine3>
+		<Town>Chesterfield</Town>
+		<County></County>
+		<Postcode>S42 5QT</Postcode>
+		<CountryCodeIso2>GB</CountryCodeIso2> <!-- RoyalMail Api countryCode -->
+		<Email>test@test.co.uk</Email>
+		<Phone>07512222222</Phone> <!-- RoyalMail Api phoneNumber -->
+	</Address>
+	
+	<Items>
+		<Item>
+			<Weight>110</Weight> <!-- weight in grams -->
+			<Price>110</Price> <!-- price in cents -->
+		</Item>
+	</Items>
+	
+</PPLabel>
