@@ -80,7 +80,10 @@ namespace RoyalMailApi.Engine
             byte[] hashedPassword;
             hashedPassword = GetSHA1(_credentials.SoapSecurity.Password);
 
-            string concatednatedDigestInput = string.Concat(nonce, creationDate, Encoding.Default.GetString(hashedPassword));
+            // https://github.com/povilaspanavas/RoyalMailShippingApiV2/issues/1
+            // after hippasus raised issue, I've changed the encoding (previously was using Default). Ran the tests and it worked
+            var encoding = Encoding.GetEncoding("iso-8859-1");
+            string concatednatedDigestInput = string.Concat(nonce, creationDate, encoding.GetString(hashedPassword));
             byte[] digest;
             digest = GetSHA1(concatednatedDigestInput);
 
@@ -88,7 +91,7 @@ namespace RoyalMailApi.Engine
             passwordDigest = Convert.ToBase64String(digest);
 
             string encodedNonce;
-            encodedNonce = Convert.ToBase64String(Encoding.Default.GetBytes(nonce));
+            encodedNonce = Convert.ToBase64String(encoding.GetBytes(nonce));
 
             XmlDocument doc = new XmlDocument();
             using (XmlWriter writer = doc.CreateNavigator().AppendChild())
