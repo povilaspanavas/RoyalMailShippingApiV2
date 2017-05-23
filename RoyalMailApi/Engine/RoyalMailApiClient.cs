@@ -82,16 +82,19 @@ namespace RoyalMailApi.Engine
 
             // https://github.com/povilaspanavas/RoyalMailShippingApiV2/issues/1
             // after hippasus raised issue, I've changed the encoding (previously was using Default). Ran the tests and it worked
-            var encoding = Encoding.GetEncoding("iso-8859-1");
-            string concatednatedDigestInput = string.Concat(nonce, creationDate, encoding.GetString(hashedPassword));
+            // However, wouldn't work for ive server. So, the concatednatedDigestInput uses Default. But encodedNonce uses UK one.
+            // Now it works on our live server, and in tests.
+
+            string concatednatedDigestInput = string.Concat(nonce, creationDate, Encoding.Default.GetString(hashedPassword));
+            //string concatednatedDigestInput = string.Concat(nonce, creationDate, encoding.GetString(hashedPassword));
             byte[] digest;
             digest = GetSHA1(concatednatedDigestInput);
 
             string passwordDigest;
             passwordDigest = Convert.ToBase64String(digest);
 
-            string encodedNonce;
-            encodedNonce = Convert.ToBase64String(encoding.GetBytes(nonce));
+            var encoding = Encoding.GetEncoding("iso-8859-1");
+            string encodedNonce = Convert.ToBase64String(encoding.GetBytes(nonce));
 
             XmlDocument doc = new XmlDocument();
             using (XmlWriter writer = doc.CreateNavigator().AppendChild())
